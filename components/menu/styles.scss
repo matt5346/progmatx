@@ -1,0 +1,150 @@
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: color(main);
+
+  @include lg {
+    padding: 30px 0;
+  }
+}
+
+.menu__logo {
+  transition: transform .2s ease-in, color .1s ease-in;
+  cursor: pointer;
+
+  &:hover {
+    fill: color(accent-light);
+    transform: translateX(-5px);
+  }
+}
+
+.menu__options {
+  display: flex;
+  align-items: center;
+  color: color(main-text);
+}
+
+.menu__options-nav {
+  display: flex;
+}
+
+.menu__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  @include lg {
+    width: rem-lg(1400px);
+  }
+}
+
+.menu__options-nav__li {
+  position: relative;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 5px 30px;
+  border-radius: 16px;
+  transition: background .1s ease-in;
+  &:before {
+    display: block;
+    content: '';
+    position: absolute;
+    padding: 5px 8px;
+    left: -8px;
+    top: -7px;
+    width: 100%;
+    height: 110%;
+    border-radius: 22px;
+    transition: all .2s ease-in;
+    opacity: 0;
+    box-shadow: unset;
+    visibility: hidden;
+    transform: translate3d(0, 0, 0) scale(1.5);
+    z-index: 1;
+  }
+
+  &:hover {
+    background: color(accent-60);
+    &:before {
+      padding: 5px 8px;
+      visibility: visible;
+      opacity: 1;
+      transform: translate3d(0, 0, 0) scale(1);
+      box-shadow: 0 0 0 2px color(main-reverse);
+    }
+  }
+
+  &.nuxt-link-exact-active {
+    background: color(accent);
+
+    &:hover {
+      &:before {
+        opacity: 0;
+      }
+    }
+  }
+
+
+  @include lg {
+    margin: 0 20px;
+  }
+}
+
+.menu__options-socials {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 10px;
+}
+
+.menu__options-socials__link {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-right: 15px;
+  border-radius: 50%;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &:before {
+    display: block;
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    transition: all .15s ease-in;
+    visibility: hidden;
+    transform: translate3d(0, 0, 0) scale(1.5);
+    z-index: 1;
+  }
+
+  &:hover {
+    &:before {
+      transform: scale(1.15);
+      visibility: visible;
+      box-shadow: 0 0 0 2px color(main-reverse);
+    }
+
+    .menu__options-socials__svg {
+      fill: color(accent);
+      background: #ffffff;
+    }
+  }
+
+
+}
+
+.menu__options-socials__svg {
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 5;
+  transition: all .1s ease-in;
+}
+

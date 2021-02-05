@@ -1,0 +1,154 @@
+@import "color-variables";
+@import "mixins";
+
+:root, [data-theme="default"] {
+  --color-main: #{$dark};
+  --color-sec: #{$dark2};
+  --color-accent: #{$accent};
+  --color-accent-light: #{$accent-light};
+  --color-accent-80: #{$accent-80};
+  --color-accent-60: #{$accent-60};
+  --color-accent-sec: #{$accent2};
+  --color-main-reverse: #{$white};
+  --color-main-text: #{$grey2};
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Nunito';
+  margin: 0;
+  padding: 0;
+  color: color(main-reverse);
+}
+
+li, ol {
+  list-style-type: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+h2 {
+  font-size: rem-sm(20px);
+
+  @include md {
+    font-size: rem-md(24px);
+  }
+
+  @include lg {
+    font-size: rem-lg(24px);
+  }
+
+}
+
+#app {
+  overflow-x: hidden;
+  background: color(sec);
+  min-height: 100vh;
+
+  @include sm {
+    padding-top: rem-sm(80px);
+    padding-bottom: rem-sm(108px);
+  }
+  @include md {
+    padding-top: rem-md(80px);
+  }
+  @include lg {
+    padding-top: rem-lg(120px);
+  }
+}
+
+body {
+  background: color(grey);
+  overflow-x: hidden;
+}
+
+select, input, button, textarea, option:focus {
+  outline: none;
+}
+
+.router-link-active {
+  text-decoration: unset;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+.footer__upper__socials-item-link:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+#app {
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  a:hover {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+rect {
+  transition: all .1s linear;
+}
+
+path {
+  transition: all .1s linear;
+}
+
+.container {
+  width: 100%;
+  @include sm {
+    max-width: 100%;
+    padding: 0 rem-sm(10px);
+  }
+  @include md {
+    max-width: 100%;
+    padding: 0 rem-md(10px);
+  }
+  @include lg {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 rem-lg(20px);
+  }
+}
+
+.section {
+  margin: rem-sm(40px) 0;
+
+  @include sm {
+    margin: rem-sm(40px) 0;
+  }
+
+  @include md {
+    margin: rem-md(40px) 0;
+  }
+
+  @include lg {
+    margin: rem-lg(40px) 0;
+  }
+}
+
+.section__title {
+  @include sm {
+    font-size: rem-sm(24px);
+    margin: rem-sm(10px) 0 rem-sm(30px) 0;
+  }
+  @include md {
+    font-size: rem-md(24px);
+    margin: rem-md(10px) 0 rem-md(30px) 0;
+  }
+  @include lg {
+    font-size: rem-lg(24px);
+    margin: rem-lg(10px) 0 rem-lg(30px) 0;
+  }
+}

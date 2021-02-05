@@ -1,0 +1,62 @@
+// color function for variables in scss
+@function color($color-name) {
+  @return var(--color-#{$color-name});
+}
+
+// rems for all medias
+@function rem-sm($size) {
+  @return $size / $root-font-size-sm * 1rem;
+}
+
+@function rem-md($size) {
+  @return $size * 1.5625 / $root-font-size-sm * 1rem;
+}
+
+@function rem-lg($size) {
+  @return $size * 1.1111111 / $root-font-size-sm * 1rem;
+}
+
+@mixin sm-small-mob {
+  @media (max-width: $sm-small-top) {
+    @content;
+  }
+}
+
+@mixin sm {
+  @media (max-width: $sm-top) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media (min-width: $md-bottom) and (max-width: $md-top) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media (min-width: $lg-bottom) {
+    @content;
+  }
+}
+
+@mixin html-font-size() {
+  @media (max-width: $sm-top) {
+    @media (orientation: portrait) {
+      font-size: 15px * 100vw / 320px;
+    }
+    @media (orientation: landscape) {
+      font-size: 8px * 100vw / 320px;
+    }
+  }
+  @media (min-width: $md-bottom) {
+    font-size: 18px * 100vw / 1920px;
+  }
+}
+
+$sm-small-top: 440px;
+$sm-top: 768px;
+$md-bottom: 769px;
+$md-top: 1024px;
+$lg-bottom: 1025px;
+$root-font-size-sm: 15px;
